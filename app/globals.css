@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0a1b33;
+  --ink-2: #12294a;
+  --paper: #f5f8fb;
+  --white: #ffffff;
+  --teal: #15b8a6;
+  --teal-deep: #0e7c74;
+  --cta: #f2683c;
+  --cta-deep: #d8552c;
+  --line: #dde6ee;
+  --muted: #5c6b7e;
+  --gold: #c99a3f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-paper: var(--paper);
+  --color-teal: var(--teal);
+  --color-teal-deep: var(--teal-deep);
+  --color-cta: var(--cta);
+  --color-cta-deep: var(--cta-deep);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --font-serif: var(--font-newsreader);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-newsreader), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(242, 104, 60, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgba(242, 104, 60, 0);
+  }
+}
+
+.play-pulse {
+  animation: pulse-ring 2.2s ease-out infinite;
 }
