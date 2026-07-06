@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t border-line bg-white pb-24 pt-10 text-sm text-muted md:pb-10">
       <div className="mx-auto max-w-[1140px] px-5">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-baseline gap-1">
+          <div className="flex items-baseline">
             <span className="font-serif text-base font-semibold text-ink">Bio</span>
             <span className="font-serif text-base font-semibold text-teal-deep">RegenEx</span>
           </div>

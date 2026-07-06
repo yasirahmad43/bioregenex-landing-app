@@ -10,7 +10,7 @@ export default function Header() {
       </div>
       <div className="border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1140px] items-center justify-between px-5 py-4">
-          <div className="flex items-baseline gap-1.5">
+          <div className="flex items-baseline">
             <span className="font-serif text-xl font-semibold text-ink">Bio</span>
             <span className="font-serif text-xl font-semibold text-teal-deep">RegenEx</span>
           </div>

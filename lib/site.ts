@@ -34,12 +34,6 @@ export const testimonialVideos: TestimonialVideo[] = [
     poster: "/images/testimonials/testimonial-stroke.jpg",
   },
   {
-    slug: "autoimmune-scoliosis",
-    title: "Living with autoimmune disease and scoliosis",
-    video: "/videos/testimonial-autoimmune-scoliosis.mp4",
-    poster: "/images/testimonials/testimonial-autoimmune-scoliosis.jpg",
-  },
-  {
     slug: "ms-neuropathy",
     title: "Multiple sclerosis and neuropathy — her story",
     video: "/videos/testimonial-ms-neuropathy.mp4",
