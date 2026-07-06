@@ -11,22 +11,23 @@ const CONCERNS = [
 
 export default function EduHero() {
   return (
-    <section className="relative overflow-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_60%_30%,rgba(47,111,237,0.25),transparent_60%)]" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-[24%] top-[40%] hidden h-[560px] w-[560px] -translate-y-1/2 opacity-70 lg:block"
-      >
-        <Image
-          src="/images/learn-more/hero-exosome.jpg"
-          alt=""
-          fill
-          className="object-contain mix-blend-screen"
-          priority
-        />
-      </div>
+    <section className="relative z-0 overflow-hidden bg-ink text-white">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_60%_30%,rgba(47,111,237,0.25),transparent_60%)]" />
       <div className="mx-auto grid max-w-[1240px] gap-10 px-5 py-14 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
-        <div className="relative">
+        <div className="relative z-0">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-8 top-1/2 -z-10 hidden h-[360px] w-[360px] -translate-y-1/2 opacity-50 lg:block"
+          >
+            <Image
+              src="/images/learn-more/hero-exosome.jpg"
+              alt=""
+              fill
+              className="object-contain mix-blend-screen"
+              priority
+            />
+          </div>
+
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#bcd0e6]">
             <Tv className="h-4 w-4 text-teal" />
             As seen on national television — All Access with Andy Garcia
