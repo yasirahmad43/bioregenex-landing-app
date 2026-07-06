@@ -19,7 +19,10 @@ export default function Hero() {
             step.
           </p>
 
-          <div className="mt-6 max-w-xl rounded-2xl border border-line bg-white/80 p-6 shadow-[0_8px_30px_rgba(10,27,51,0.06)] backdrop-blur">
+          <div
+            id="apply"
+            className="mt-6 max-w-xl rounded-2xl border border-line bg-white/80 p-6 shadow-[0_8px_30px_rgba(10,27,51,0.06)] backdrop-blur"
+          >
             <LeadForm compact />
           </div>
         </div>

@@ -67,7 +67,7 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3" id="apply">
+    <form onSubmit={handleSubmit} className="space-y-3">
       <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-3"}>
         <input
           required

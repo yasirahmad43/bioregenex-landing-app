@@ -4,8 +4,6 @@ export const site = {
   phoneDisplay: "(346) 313-8437",
   phoneHref: "tel:+13463138437",
   calendlyUrl: "https://calendly.com/shahabshayeste1/30min",
-  calendlyEmbedUrl:
-    "https://calendly.com/shahabshayeste1/30min?hide_event_type_details=1&hide_gdpr_banner=1",
   links: {
     home: "https://bioregenex.com/",
     exosomeTherapy: "https://bioregenex.com/exosome-therapy/",

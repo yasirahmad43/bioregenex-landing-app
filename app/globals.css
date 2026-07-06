@@ -7,8 +7,8 @@
   --white: #ffffff;
   --teal: #15b8a6;
   --teal-deep: #0e7c74;
-  --cta: #f2683c;
-  --cta-deep: #d8552c;
+  --cta: #059669;
+  --cta-deep: #047857;
   --line: #dde6ee;
   --muted: #5c6b7e;
   --gold: #c99a3f;
@@ -57,10 +57,10 @@ h3 {
 
 @keyframes pulse-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(242, 104, 60, 0.45);
+    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.45);
   }
   100% {
-    box-shadow: 0 0 0 16px rgba(242, 104, 60, 0);
+    box-shadow: 0 0 0 16px rgba(5, 150, 105, 0);
   }
 }
 
