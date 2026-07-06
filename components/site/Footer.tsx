@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 export default function Footer() {
@@ -8,9 +9,12 @@ export default function Footer() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <Image src="/brand/logo.png" alt="BioRegenEx" width={400} height={112} className="h-11 w-auto" />
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            <a href={site.links.home} className="hover:text-ink">
+            <Link href="/" className="hover:text-ink">
               Home
-            </a>
+            </Link>
+            <Link href="/learn-more" className="hover:text-ink">
+              Learn More
+            </Link>
             <a href={site.links.exosomeTherapy} className="hover:text-ink">
               Exosome Therapy
             </a>

@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const { name, phone, email, concern, source } = body as Record<string, unknown>;
+  const { name, phone, email, concern, preferredTime, source } = body as Record<string, unknown>;
 
   if (typeof name !== "string" || !name.trim() || typeof phone !== "string" || !phone.trim()) {
     return NextResponse.json({ error: "Name and phone are required" }, { status: 400 });
@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
       phone: phone.trim(),
       email: typeof email === "string" ? email.trim() || null : null,
       concern: typeof concern === "string" ? concern.trim() || null : null,
+      preferred_time: typeof preferredTime === "string" ? preferredTime.trim() || null : null,
       source: typeof source === "string" ? source.trim() || null : "landing_page",
     });
 

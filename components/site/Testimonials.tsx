@@ -3,7 +3,7 @@ import { testimonialVideos } from "@/lib/site";
 
 export default function Testimonials() {
   return (
-    <section className="mx-auto max-w-[1200px] px-5 py-20 md:py-24">
+    <section id="testimonials" className="mx-auto max-w-[1200px] px-5 py-20 md:py-24 scroll-mt-24">
       <div className="mx-auto max-w-3xl text-center">
         <p className="eyebrow">In their words</p>
         <h2 className="mt-3 text-[clamp(30px,3.6vw,44px)] font-medium text-ink">

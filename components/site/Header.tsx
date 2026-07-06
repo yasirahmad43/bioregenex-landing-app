@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -11,14 +12,24 @@ export default function Header() {
       </div>
       <div className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1140px] items-center justify-between px-5 py-5">
-          <Image
-            src="/brand/logo.png"
-            alt="BioRegenEx"
-            width={400}
-            height={112}
-            priority
-            className="h-16 w-auto"
-          />
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/brand/logo.png"
+              alt="BioRegenEx"
+              width={400}
+              height={112}
+              priority
+              className="h-16 w-auto"
+            />
+          </Link>
+          <nav className="hidden items-center gap-8 text-base font-semibold text-ink md:flex">
+            <Link href="/" className="transition hover:text-teal-deep">
+              Home
+            </Link>
+            <Link href="/learn-more" className="transition hover:text-teal-deep">
+              Learn More
+            </Link>
+          </nav>
           <a
             href={site.phoneHref}
             className="flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-base font-semibold text-ink transition hover:border-teal hover:text-teal-deep"

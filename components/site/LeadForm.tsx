@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { site } from "@/lib/site";
 
-const CONCERNS = [
+const DEFAULT_CONCERNS = [
   "Joint / back pain",
   "Autoimmune condition",
   "Neurological / MS",
@@ -12,9 +12,30 @@ const CONCERNS = [
   "Something else",
 ];
 
+const PREFERRED_TIMES = [
+  "Morning",
+  "Afternoon",
+  "Evening",
+  "No preference",
+];
+
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function LeadForm({ compact = false }: { compact?: boolean }) {
+export default function LeadForm({
+  compact = false,
+  concernLabel = "What brings you here?",
+  concernOptions = DEFAULT_CONCERNS,
+  showPreferredTime = false,
+  ctaLabel = "See If You're a Candidate — Free",
+  source = "landing_page",
+}: {
+  compact?: boolean;
+  concernLabel?: string;
+  concernOptions?: string[];
+  showPreferredTime?: boolean;
+  ctaLabel?: string;
+  source?: string;
+}) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -33,7 +54,8 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
           phone: data.get("phone"),
           email: data.get("email"),
           concern: data.get("concern"),
-          source: "landing_page",
+          preferredTime: data.get("preferredTime"),
+          source,
         }),
       });
 
@@ -96,9 +118,9 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
           className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
         >
           <option value="" disabled>
-            What brings you here?
+            {concernLabel}
           </option>
-          {CONCERNS.map((c) => (
+          {concernOptions.map((c) => (
             <option key={c} value={c}>
               {c}
             </option>
@@ -106,13 +128,30 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
         </select>
       </div>
 
+      {showPreferredTime && (
+        <select
+          name="preferredTime"
+          defaultValue=""
+          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+        >
+          <option value="" disabled>
+            Preferred time to speak
+          </option>
+          {PREFERRED_TIMES.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+      )}
+
       <button
         type="submit"
         disabled={status === "submitting"}
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-cta px-7 py-4 text-lg font-semibold text-white transition hover:bg-cta-deep disabled:opacity-70"
       >
         {status === "submitting" && <Loader2 className="h-4 w-4 animate-spin" />}
-        See If You&apos;re a Candidate — Free
+        {ctaLabel}
       </button>
 
       {status === "error" && (
