@@ -73,14 +73,14 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
           required
           name="name"
           placeholder="Full name"
-          className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
         />
         <input
           required
           name="phone"
           type="tel"
           placeholder="Phone number"
-          className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
         />
       </div>
       <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-3"}>
@@ -88,12 +88,12 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
           name="email"
           type="email"
           placeholder="Email (optional)"
-          className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
         />
         <select
           name="concern"
           defaultValue=""
-          className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
         >
           <option value="" disabled>
             What brings you here?
@@ -109,7 +109,7 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-cta px-6 py-3.5 text-base font-semibold text-white transition hover:bg-cta-deep disabled:opacity-70"
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-cta px-7 py-4 text-lg font-semibold text-white transition hover:bg-cta-deep disabled:opacity-70"
       >
         {status === "submitting" && <Loader2 className="h-4 w-4 animate-spin" />}
         See If You&apos;re a Candidate — Free
@@ -125,7 +125,7 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
         </p>
       )}
 
-      <p className="text-center text-xs text-muted">
+      <p className="text-center text-sm text-muted">
         No obligation. A licensed provider reviews your information — never a sales call.
       </p>
     </form>

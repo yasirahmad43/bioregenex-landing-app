@@ -54,10 +54,10 @@ export default function VideoPlayer({
             className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-          <span className="play-pulse absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cta text-white shadow-lg transition group-hover:scale-105">
-            <Play className="ml-1 h-6 w-6" fill="currentColor" />
+          <span className="play-pulse absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cta text-white shadow-lg transition group-hover:scale-105">
+            <Play className="ml-1 h-8 w-8" fill="currentColor" />
           </span>
-          <span className="absolute inset-x-0 bottom-0 p-4 text-left text-sm font-medium text-white">
+          <span className="absolute inset-x-0 bottom-0 p-5 text-left text-base font-medium text-white">
             {title}
           </span>
         </button>

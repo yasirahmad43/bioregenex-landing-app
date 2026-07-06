@@ -18,24 +18,24 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="mx-auto max-w-[1140px] px-5 py-16 md:py-20">
-      <div className="mx-auto max-w-2xl text-center">
+    <section className="mx-auto max-w-[1200px] px-5 py-20 md:py-24">
+      <div className="mx-auto max-w-3xl text-center">
         <p className="eyebrow">The process</p>
-        <h2 className="mt-3 text-[clamp(26px,3.2vw,38px)] font-medium text-ink">
+        <h2 className="mt-3 text-[clamp(30px,3.6vw,44px)] font-medium text-ink">
           Three steps. No obligation.
         </h2>
-        <p className="mt-3 text-muted">
+        <p className="mt-4 text-lg text-muted">
           The consultation is free and the treatment decision is always made with a
           licensed provider — not a sales call.
         </p>
       </div>
 
-      <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
+      <div className="mt-14 grid gap-8 md:grid-cols-3 md:gap-7">
         {steps.map((s) => (
-          <div key={s.n} className="relative rounded-2xl border border-line bg-white p-7">
-            <span className="font-serif text-4xl font-medium text-teal/25">{s.n}</span>
-            <h3 className="mt-3 text-xl font-medium text-ink">{s.title}</h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.body}</p>
+          <div key={s.n} className="relative rounded-2xl border border-line bg-white p-8">
+            <span className="font-serif text-5xl font-medium text-teal/25">{s.n}</span>
+            <h3 className="mt-4 text-2xl font-medium text-ink">{s.title}</h3>
+            <p className="mt-2 text-base leading-relaxed text-muted">{s.body}</p>
           </div>
         ))}
       </div>

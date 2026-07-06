@@ -3,10 +3,10 @@ import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-white pb-24 pt-10 text-sm text-muted md:pb-10">
-      <div className="mx-auto max-w-[1140px] px-5">
+    <footer className="border-t border-line bg-white pb-24 pt-12 text-base text-muted md:pb-12">
+      <div className="mx-auto max-w-[1200px] px-5">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <Image src="/brand/logo.png" alt="BioRegenEx" width={400} height={200} className="h-7 w-auto" />
+          <Image src="/brand/logo.png" alt="BioRegenEx" width={400} height={200} className="h-11 w-auto" />
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             <a href={site.links.home} className="hover:text-ink">
               Home
@@ -25,7 +25,7 @@ export default function Footer() {
             </a>
           </nav>
         </div>
-        <div className="mt-8 max-w-3xl space-y-3 text-xs leading-relaxed text-muted/80">
+        <div className="mt-8 max-w-3xl space-y-3 text-sm leading-relaxed text-muted/80">
           <p>
             <strong className="text-muted">Important Information.</strong> These
             statements have not been evaluated by the U.S. Food and Drug
@@ -48,7 +48,7 @@ export default function Footer() {
             consultation with a qualified, licensed healthcare provider.
           </p>
         </div>
-        <p className="mt-4 text-xs text-muted/60">
+        <p className="mt-4 text-sm text-muted/60">
           © {new Date().getFullYear().toString()} BioRegenEx. All rights reserved.
         </p>
       </div>

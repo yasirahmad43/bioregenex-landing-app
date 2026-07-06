@@ -3,18 +3,18 @@ import { testimonialVideos } from "@/lib/site";
 
 export default function Testimonials() {
   return (
-    <section className="mx-auto max-w-[1140px] px-5 py-16 md:py-20">
-      <div className="mx-auto max-w-2xl text-center">
+    <section className="mx-auto max-w-[1200px] px-5 py-20 md:py-24">
+      <div className="mx-auto max-w-3xl text-center">
         <p className="eyebrow">In their words</p>
-        <h2 className="mt-3 text-[clamp(26px,3.2vw,38px)] font-medium text-ink">
+        <h2 className="mt-3 text-[clamp(30px,3.6vw,44px)] font-medium text-ink">
           Real patients, in their own words
         </h2>
-        <p className="mt-3 text-muted">
+        <p className="mt-4 text-lg text-muted">
           Unscripted stories from people who started with the same free consultation.
         </p>
       </div>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {testimonialVideos.map((t) => (
           <VideoPlayer
             key={t.slug}
@@ -26,7 +26,7 @@ export default function Testimonials() {
         ))}
       </div>
 
-      <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-muted">
+      <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted">
         Testimonials reflect individual patient experiences shared with consent.
         Individual results vary and are not guaranteed. These statements have not
         been evaluated by the FDA and are not intended to diagnose, treat, cure, or
