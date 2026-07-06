@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/lib/site";
 
 export default function Footer() {
@@ -5,10 +6,7 @@ export default function Footer() {
     <footer className="border-t border-line bg-white pb-24 pt-10 text-sm text-muted md:pb-10">
       <div className="mx-auto max-w-[1140px] px-5">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-baseline">
-            <span className="font-serif text-base font-semibold text-ink">Bio</span>
-            <span className="font-serif text-base font-semibold text-teal-deep">RegenEx</span>
-          </div>
+          <Image src="/brand/logo.png" alt="BioRegenEx" width={400} height={200} className="h-7 w-auto" />
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             <a href={site.links.home} className="hover:text-ink">
               Home

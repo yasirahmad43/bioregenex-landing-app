@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -10,10 +11,14 @@ export default function Header() {
       </div>
       <div className="border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1140px] items-center justify-between px-5 py-4">
-          <div className="flex items-baseline">
-            <span className="font-serif text-xl font-semibold text-ink">Bio</span>
-            <span className="font-serif text-xl font-semibold text-teal-deep">RegenEx</span>
-          </div>
+          <Image
+            src="/brand/logo.png"
+            alt="BioRegenEx"
+            width={400}
+            height={200}
+            priority
+            className="h-9 w-auto"
+          />
           <a
             href={site.phoneHref}
             className="flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-semibold text-ink transition hover:border-teal hover:text-teal-deep"
