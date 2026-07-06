@@ -3,7 +3,6 @@ export const site = {
   domain: "bioregenex.com",
   phoneDisplay: "(346) 313-8437",
   phoneHref: "tel:+13463138437",
-  calendlyUrl: "https://calendly.com/shahabshayeste1/30min",
   links: {
     home: "https://bioregenex.com/",
     exosomeTherapy: "https://bioregenex.com/exosome-therapy/",

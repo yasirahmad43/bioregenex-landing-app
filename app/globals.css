@@ -67,12 +67,3 @@ h3 {
 .play-pulse {
   animation: pulse-ring 2.2s ease-out infinite;
 }
-
-/* Scoped blue theme for the /learn-more page — overrides accent tokens only,
-   leaves the main site's teal/green theme untouched. */
-.edu-theme {
-  --teal: #60a5fa;
-  --teal-deep: #2f6fed;
-  --cta: #2f6fed;
-  --cta-deep: #2559c4;
-}

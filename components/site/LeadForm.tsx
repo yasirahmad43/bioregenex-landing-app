@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { site } from "@/lib/site";
+import { US_STATES } from "@/lib/states";
 
-const DEFAULT_CONCERNS = [
+const CONCERNS = [
   "Joint / back pain",
   "Autoimmune condition",
   "Neurological / MS",
@@ -12,30 +13,9 @@ const DEFAULT_CONCERNS = [
   "Something else",
 ];
 
-const PREFERRED_TIMES = [
-  "Morning",
-  "Afternoon",
-  "Evening",
-  "No preference",
-];
-
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function LeadForm({
-  compact = false,
-  concernLabel = "What brings you here?",
-  concernOptions = DEFAULT_CONCERNS,
-  showPreferredTime = false,
-  ctaLabel = "See If You're a Candidate — Free",
-  source = "landing_page",
-}: {
-  compact?: boolean;
-  concernLabel?: string;
-  concernOptions?: string[];
-  showPreferredTime?: boolean;
-  ctaLabel?: string;
-  source?: string;
-}) {
+export default function LeadForm({ compact = false }: { compact?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -53,9 +33,9 @@ export default function LeadForm({
           name: data.get("name"),
           phone: data.get("phone"),
           email: data.get("email"),
+          state: data.get("state"),
           concern: data.get("concern"),
-          preferredTime: data.get("preferredTime"),
-          source,
+          source: "landing_page",
         }),
       });
 
@@ -73,16 +53,7 @@ export default function LeadForm({
         <CheckCircle2 className="mx-auto mb-3 h-9 w-9 text-teal-deep" />
         <p className="font-semibold text-ink">You&apos;re all set.</p>
         <p className="mt-1 text-sm text-muted">
-          A member of our team will call you shortly. Prefer to pick your own time?{" "}
-          <a
-            href={site.calendlyUrl}
-            target="_blank"
-            rel="noopener"
-            className="font-semibold text-teal-deep underline underline-offset-2"
-          >
-            Schedule it yourself
-          </a>
-          .
+          A member of our team will call you shortly.
         </p>
       </div>
     );
@@ -112,38 +83,37 @@ export default function LeadForm({
           placeholder="Email (optional)"
           className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
         />
-        <select
-          name="concern"
-          defaultValue=""
-          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-        >
-          <option value="" disabled>
-            {concernLabel}
-          </option>
-          {concernOptions.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
+        <input
+          name="state"
+          list="state-options"
+          autoComplete="off"
+          placeholder="State (e.g. TX or Texas)"
+          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+        />
+        <datalist id="state-options">
+          {US_STATES.map((s) => (
+            <option key={s.abbr} value={s.name} />
           ))}
-        </select>
+          {US_STATES.map((s) => (
+            <option key={s.abbr} value={s.abbr} />
+          ))}
+        </datalist>
       </div>
 
-      {showPreferredTime && (
-        <select
-          name="preferredTime"
-          defaultValue=""
-          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-        >
-          <option value="" disabled>
-            Preferred time to speak
+      <select
+        name="concern"
+        defaultValue=""
+        className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+      >
+        <option value="" disabled>
+          What brings you here?
+        </option>
+        {CONCERNS.map((c) => (
+          <option key={c} value={c}>
+            {c}
           </option>
-          {PREFERRED_TIMES.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
-      )}
+        ))}
+      </select>
 
       <button
         type="submit"
@@ -151,7 +121,7 @@ export default function LeadForm({
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-cta px-7 py-4 text-lg font-semibold text-white transition hover:bg-cta-deep disabled:opacity-70"
       >
         {status === "submitting" && <Loader2 className="h-4 w-4 animate-spin" />}
-        {ctaLabel}
+        Submit
       </button>
 
       {status === "error" && (

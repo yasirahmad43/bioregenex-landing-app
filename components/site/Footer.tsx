@@ -12,9 +12,6 @@ export default function Footer() {
             <Link href="/" className="hover:text-ink">
               Home
             </Link>
-            <Link href="/learn-more" className="hover:text-ink">
-              Learn More
-            </Link>
             <a href={site.links.exosomeTherapy} className="hover:text-ink">
               Exosome Therapy
             </a>
