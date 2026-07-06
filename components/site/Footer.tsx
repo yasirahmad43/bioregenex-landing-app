@@ -25,13 +25,29 @@ export default function Footer() {
             </a>
           </nav>
         </div>
-        <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted/80">
-          BioRegenEx does not provide medical advice. This site is for informational
-          purposes and connects visitors with licensed providers for a consultation.
-          Regenerative therapy is not a guaranteed cure and individual results vary.
-          These statements have not been evaluated by the FDA and are not intended to
-          diagnose, treat, cure, or prevent any disease.
-        </p>
+        <div className="mt-8 max-w-3xl space-y-3 text-xs leading-relaxed text-muted/80">
+          <p>
+            <strong className="text-muted">Important Information.</strong> These
+            statements have not been evaluated by the U.S. Food and Drug
+            Administration. BioRegenEx products are not intended to diagnose, treat,
+            cure, or prevent any disease and are provided for research use only.
+            MSC-derived exosomes are not FDA-approved for medical treatment. Exosome
+            therapy is an emerging, investigational regenerative approach; outcomes
+            vary and individual results cannot be guaranteed.
+          </p>
+          <p>
+            References to regulatory standards — including Section 351(a) of the
+            Public Health Service Act — describe the company&apos;s stated quality and
+            compliance approach and should not be interpreted as FDA approval or
+            endorsement of any product. Facility registration and a cGMP process
+            describe a quality approach, not FDA approval.
+          </p>
+          <p>
+            This page is for educational and informational purposes only and does not
+            constitute medical advice. Treatment decisions are made solely in
+            consultation with a qualified, licensed healthcare provider.
+          </p>
+        </div>
         <p className="mt-4 text-xs text-muted/60">
           © {new Date().getFullYear().toString()} BioRegenEx. All rights reserved.
         </p>

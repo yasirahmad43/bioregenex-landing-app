@@ -10,19 +10,22 @@ export default function VideoPlayer({
   title,
   className,
   ringClassName,
+  aspect = "aspect-9/16",
 }: {
   src: string;
   poster: string;
   title: string;
   className?: string;
   ringClassName?: string;
+  aspect?: string;
 }) {
   const [playing, setPlaying] = useState(false);
 
   return (
     <div
       className={clsx(
-        "relative aspect-9/16 w-full overflow-hidden rounded-[20px] bg-ink",
+        "relative w-full overflow-hidden rounded-[20px] bg-ink",
+        aspect,
         ringClassName,
         className
       )}
