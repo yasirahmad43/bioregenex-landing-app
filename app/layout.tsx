@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Newsreader, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
+import Analytics, { AnalyticsNoscript } from "@/components/site/Analytics";
 
 const newsreader = Newsreader({
   variable: "--font-newsreader",
@@ -42,7 +43,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${newsreader.variable} ${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-paper text-ink">{children}</body>
+      <body className="min-h-full flex flex-col bg-paper text-ink">
+        <AnalyticsNoscript />
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

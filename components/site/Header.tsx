@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
+import CallLink from "./CallLink";
 
 export default function Header() {
   return (
@@ -21,14 +22,14 @@ export default function Header() {
               className="h-16 w-auto"
             />
           </Link>
-          <a
-            href={site.phoneHref}
+          <CallLink
+            location="header"
             className="flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-base font-semibold text-ink transition hover:border-teal hover:text-teal-deep"
           >
             <Phone className="h-5 w-5" />
             <span className="hidden sm:inline">{site.phoneDisplay}</span>
             <span className="sm:hidden">Call</span>
-          </a>
+          </CallLink>
         </div>
       </div>
     </header>

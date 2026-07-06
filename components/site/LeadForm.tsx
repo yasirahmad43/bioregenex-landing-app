@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { site } from "@/lib/site";
 import { US_STATES } from "@/lib/states";
+import { trackLead } from "@/lib/analytics";
 
 const CONCERNS = [
   "Joint / back pain",
@@ -14,16 +15,47 @@ const CONCERNS = [
 ];
 
 type Status = "idle" | "submitting" | "success" | "error";
+type Errors = { name?: string; phone?: string };
+
+function formatPhone(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  const len = digits.length;
+  if (len === 0) return "";
+  if (len < 4) return `(${digits}`;
+  if (len < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
+const inputBase =
+  "w-full rounded-xl border bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-teal/20";
 
 export default function LeadForm({ compact = false }: { compact?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
+  const [phone, setPhone] = useState("");
+  const [errors, setErrors] = useState<Errors>({});
+
+  function validate(data: FormData): Errors {
+    const next: Errors = {};
+    const name = String(data.get("name") ?? "").trim();
+    const phoneDigits = String(data.get("phone") ?? "").replace(/\D/g, "");
+    if (!name) next.name = "Please enter your name.";
+    if (phoneDigits.length !== 10) next.phone = "Enter a valid 10-digit phone number.";
+    return next;
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
 
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    const validationErrors = validate(data);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
+    setStatus("submitting");
 
     try {
       const res = await fetch("/api/leads", {
@@ -40,8 +72,10 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
       });
 
       if (!res.ok) throw new Error("submit failed");
+      trackLead({ concern: data.get("concern") || undefined });
       setStatus("success");
       form.reset();
+      setPhone("");
     } catch {
       setStatus("error");
     }
@@ -60,35 +94,52 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} noValidate className="space-y-3">
       <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-3"}>
-        <input
-          required
-          name="name"
-          placeholder="Full name"
-          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-        />
-        <input
-          required
-          name="phone"
-          type="tel"
-          placeholder="Phone number"
-          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-        />
+        <div>
+          <input
+            required
+            name="name"
+            placeholder="Full name"
+            aria-invalid={!!errors.name}
+            onChange={() => errors.name && setErrors((p) => ({ ...p, name: undefined }))}
+            className={`${inputBase} ${errors.name ? "border-red-400" : "border-line focus:border-teal"}`}
+          />
+          {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
+        </div>
+        <div>
+          <input
+            required
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="Phone number"
+            value={phone}
+            aria-invalid={!!errors.phone}
+            onChange={(e) => {
+              setPhone(formatPhone(e.target.value));
+              if (errors.phone) setErrors((p) => ({ ...p, phone: undefined }));
+            }}
+            className={`${inputBase} ${errors.phone ? "border-red-400" : "border-line focus:border-teal"}`}
+          />
+          {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone}</p>}
+        </div>
       </div>
       <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-3"}>
         <input
           name="email"
           type="email"
+          autoComplete="email"
           placeholder="Email (optional)"
-          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+          className={`${inputBase} border-line focus:border-teal`}
         />
         <input
           name="state"
           list="state-options"
           autoComplete="off"
           placeholder="State (e.g. TX or Texas)"
-          className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+          className={`${inputBase} border-line focus:border-teal`}
         />
         <datalist id="state-options">
           {US_STATES.map((s) => (
@@ -103,7 +154,7 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
       <select
         name="concern"
         defaultValue=""
-        className="w-full rounded-xl border border-line bg-white px-5 py-3.5 text-base text-ink focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+        className={`${inputBase} border-line focus:border-teal`}
       >
         <option value="" disabled>
           What brings you here?

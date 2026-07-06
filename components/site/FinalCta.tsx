@@ -1,6 +1,7 @@
 import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import LeadForm from "./LeadForm";
+import CallLink from "./CallLink";
 
 export default function FinalCta() {
   return (
@@ -17,13 +18,13 @@ export default function FinalCta() {
             whether that&apos;s a fit for you. No surgery pressure, no obligation.
           </p>
 
-          <a
-            href={site.phoneHref}
+          <CallLink
+            location="final_cta"
             className="mt-8 inline-flex items-center gap-2 text-lg font-semibold text-ink transition hover:text-teal-deep"
           >
             <Phone className="h-5 w-5" />
             Or call {site.phoneDisplay}
-          </a>
+          </CallLink>
         </div>
 
         <div className="rounded-2xl border border-line bg-white p-6 shadow-[0_8px_30px_rgba(10,27,51,0.06)]">
