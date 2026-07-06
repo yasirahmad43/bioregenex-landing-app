@@ -3,16 +3,14 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-white pb-24 pt-12 text-base text-muted md:pb-12">
-      <div className="mx-auto max-w-[1200px] px-5">
-        <div>
-          <Image
-            src="/brand/logo.png"
-            alt="BioRegenEx"
-            width={400}
-            height={112}
-            className="h-11 w-auto"
-          />
-        </div>
+      <div className="mx-auto flex max-w-[1200px] flex-col items-center px-5 text-center">
+        <Image
+          src="/brand/logo.png"
+          alt="BioRegenEx"
+          width={400}
+          height={112}
+          className="h-11 w-auto"
+        />
         <div className="mt-8 max-w-3xl space-y-3 text-sm leading-relaxed text-muted/80">
           <p>
             <strong className="text-muted">Important Information.</strong> These
