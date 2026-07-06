@@ -4,18 +4,18 @@ import { site } from "@/lib/site";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40">
+    <header>
       <div className="bg-ink py-2.5 text-center text-sm text-[#cfe0f0]">
         <span className="font-semibold text-white">Free consultation</span> — no
         obligation, no sales pressure, ever.
       </div>
-      <div className="border-b border-line bg-white/95 backdrop-blur">
+      <div className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1140px] items-center justify-between px-5 py-5">
           <Image
             src="/brand/logo.png"
             alt="BioRegenEx"
             width={400}
-            height={200}
+            height={112}
             priority
             className="h-16 w-auto"
           />
