@@ -1,36 +1,17 @@
 import Image from "next/image";
-import Link from "next/link";
-import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-white pb-24 pt-12 text-base text-muted md:pb-12">
       <div className="mx-auto max-w-[1200px] px-5">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div>
           <Image
             src="/brand/logo.png"
             alt="BioRegenEx"
             width={400}
             height={112}
-            className="h-11 w-auto shrink-0 self-start sm:self-center"
+            className="h-11 w-auto"
           />
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/" className="hover:text-ink">
-              Home
-            </Link>
-            <a href={site.links.exosomeTherapy} className="hover:text-ink">
-              Exosome Therapy
-            </a>
-            <a href={site.links.research} className="hover:text-ink">
-              Research
-            </a>
-            <a href="#" className="hover:text-ink">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-ink">
-              Terms of Service
-            </a>
-          </nav>
         </div>
         <div className="mt-8 max-w-3xl space-y-3 text-sm leading-relaxed text-muted/80">
           <p>
