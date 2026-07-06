@@ -7,7 +7,13 @@ export default function Footer() {
     <footer className="border-t border-line bg-white pb-24 pt-12 text-base text-muted md:pb-12">
       <div className="mx-auto max-w-[1200px] px-5">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <Image src="/brand/logo.png" alt="BioRegenEx" width={400} height={112} className="h-11 w-auto" />
+          <Image
+            src="/brand/logo.png"
+            alt="BioRegenEx"
+            width={400}
+            height={112}
+            className="h-11 w-auto shrink-0 self-start sm:self-center"
+          />
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             <Link href="/" className="hover:text-ink">
               Home

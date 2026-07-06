@@ -13,7 +13,7 @@ export default function MobileStickyBar() {
       </a>
       <a
         href="#apply"
-        className="flex flex-[2] items-center justify-center rounded-xl bg-cta py-3.5 text-base font-semibold text-white"
+        className="flex flex-[2] items-center justify-center rounded-xl bg-cta px-2 py-3.5 text-center text-base font-semibold text-white"
       >
         Request My Free Consultation
       </a>
