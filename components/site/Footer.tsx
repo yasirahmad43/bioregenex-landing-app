@@ -37,6 +37,17 @@ export default function Footer() {
         <p className="mt-4 text-sm text-muted/60">
           © {new Date().getFullYear().toString()} BioRegenEx. All rights reserved.
         </p>
+        <p className="mt-2 text-sm text-muted/60">
+          Powered by:{" "}
+          <a
+            href="https://www.d1techcreative.com"
+            target="_blank"
+            rel="noopener"
+            className="font-semibold text-teal-deep hover:underline"
+          >
+            D1TechCreative
+          </a>
+        </p>
       </div>
     </footer>
   );
