@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -34,7 +35,16 @@ export default function Footer() {
             consultation with a qualified, licensed healthcare provider.
           </p>
         </div>
-        <p className="mt-4 text-sm text-muted/60">
+        <nav className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+          <Link href="/privacy" className="text-muted hover:text-ink">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="text-muted hover:text-ink">
+            Terms of Service
+          </Link>
+        </nav>
+
+        <p className="mt-6 text-sm text-muted/60">
           © {new Date().getFullYear().toString()} BioRegenEx. All rights reserved.
         </p>
         <p className="mt-2 text-sm text-muted/60">
