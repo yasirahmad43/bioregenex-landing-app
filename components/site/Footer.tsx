@@ -44,18 +44,24 @@ export default function Footer() {
           </Link>
         </nav>
 
-        <p className="mt-6 text-sm text-muted/60">
-          © {new Date().getFullYear().toString()} BioRegenEx. All rights reserved.
-        </p>
-        <p className="mt-2 text-sm text-muted/60">
-          Powered by:{" "}
+        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-muted/60">
+          <span>
+            © {new Date().getFullYear().toString()} BioRegenEx. All rights reserved.
+          </span>
           <a
-            href="https://www.d1techcreative.com"
+            href="https://d1techcreative.com"
             target="_blank"
-            rel="noopener"
-            className="font-semibold text-teal-deep hover:underline"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-muted hover:opacity-80 transition-opacity"
           >
-            D1TechCreative
+            <span className="text-sm font-medium">Powered by</span>
+            <Image
+              src="/brand/d1-logo.png"
+              alt="D1 Tech Creative"
+              width={140}
+              height={34}
+              className="h-[26px] w-auto"
+            />
           </a>
         </p>
       </div>
