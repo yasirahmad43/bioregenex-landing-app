@@ -30,7 +30,7 @@ const HONEYPOT_FIELD = "company";
 // Extend these as new bot fingerprints show up. Matching entries are
 // silent-dropped (logged, but the caller still sees { ok: true }).
 const BLOCKED_EMAIL_DOMAINS: string[] = [
-  // "example-spam.com",
+  "blocked-test.invalid", // sentinel: reserved TLD, safe to keep; copy the pattern for real spam domains
 ];
 const BLOCKED_IPS: string[] = [
   // "203.0.113.7",
