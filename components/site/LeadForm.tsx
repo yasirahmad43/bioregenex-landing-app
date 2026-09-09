@@ -67,6 +67,7 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
           email: data.get("email"),
           state: data.get("state"),
           concern: data.get("concern"),
+          company: data.get("company"),
           source: "landing_page",
         }),
       });
@@ -95,6 +96,18 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-3">
+      {/* Honeypot: hidden from real users, catches bots that fill every field.
+          Server silent-drops any submission where this comes back non-empty. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-3"}>
         <div>
           <input
